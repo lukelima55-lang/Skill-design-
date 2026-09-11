@@ -1,0 +1,763 @@
+<title>Chope em 16:9</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;800&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&display=swap">
+<style>
+  :root{
+    --ink:#050505;
+    --surface:#0C0A08;
+    --surface-2:#141110;
+    --line:#2A2520;
+    --amber:#D88C2D;
+    --gold:#C6A66A;
+    --malt:#E6C18B;
+    --pearl:#F4F2ED;
+    --polar:#F7F7F5;
+    --titanium:#8A8A8E;
+    --graphite:#43454A;
+    --muted:#9C948A;
+
+    --display:"Bodoni Moda","Didot","Times New Roman",serif;
+    --work:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+    --s1:8px; --s2:16px; --s3:24px; --s4:40px; --s5:64px; --s6:96px;
+    --gutter:clamp(18px,4.5vw,56px);
+    --max:1160px;
+  }
+
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    background:var(--ink);
+    color:var(--pearl);
+    font-family:var(--work);
+    font-size:16px;
+    line-height:1.6;
+    font-weight:300;
+    letter-spacing:.005em;
+  }
+  *{ box-sizing:border-box; }
+  img{ display:block; max-width:100%; }
+
+  .wrap{ max-width:var(--max); margin:0 auto; padding-inline:var(--gutter); }
+
+  /* ---------- shared type ---------- */
+  .eyebrow{
+    font-family:var(--work);
+    font-size:11px; font-weight:600;
+    letter-spacing:.32em; text-transform:uppercase;
+    color:var(--titanium);
+  }
+  .eyebrow .num{ color:var(--gold); }
+  h1,h2,h3{ font-family:var(--display); font-weight:400; text-wrap:balance; margin:0; }
+  h2{ font-size:clamp(30px,4.4vw,50px); line-height:1.06; letter-spacing:-.01em; }
+  h3{ font-size:20px; line-height:1.2; }
+  p{ margin:0; }
+  .lede{ font-size:clamp(16px,1.6vw,18.5px); color:var(--muted); max-width:60ch; line-height:1.62; }
+  strong{ font-weight:500; color:var(--pearl); }
+  .gold{ color:var(--gold); }
+  .amber{ color:var(--amber); }
+
+  /* ---------- the drip-tray grille: brand motif, used as rule ---------- */
+  .grille{
+    height:9px; width:100%;
+    background:repeating-linear-gradient(90deg,var(--gold) 0 1px,transparent 1px 7px);
+    opacity:.32;
+  }
+  .hair{ height:1px; background:var(--line); }
+
+  section{ padding-block:clamp(56px,8vw,104px); }
+  .sec-head{ display:flex; flex-direction:column; gap:var(--s2); margin-bottom:var(--s4); }
+  .sec-head .lede{ margin-top:4px; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    background:var(--ink);
+    padding-block:0;
+  }
+  .hero-frame{
+    position:relative;
+    aspect-ratio:16/9;
+    min-height:420px;
+    overflow:hidden;
+    background:#000 url("assets/sax-blackout.png") center/cover no-repeat;
+  }
+  .hero-frame::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(100deg,rgba(5,5,5,.94) 0%,rgba(5,5,5,.82) 34%,rgba(5,5,5,.15) 62%,rgba(5,5,5,0) 78%);
+  }
+  .hero-copy{
+    position:absolute; inset:0; z-index:2;
+    display:flex; flex-direction:column; justify-content:center; gap:var(--s3);
+    max-width:var(--max); margin:0 auto; padding-inline:var(--gutter);
+    padding-block:var(--s4);
+  }
+  .hero-copy .kicker{ display:flex; align-items:center; gap:14px; }
+  .hero-copy .kicker .bar{ width:44px; height:1px; background:var(--gold); }
+  .hero h1{
+    font-size:clamp(38px,7.4vw,84px);
+    line-height:.98; letter-spacing:-.022em;
+    max-width:14ch;
+    color:var(--pearl);
+  }
+  .hero h1 em{ font-style:italic; color:var(--malt); }
+  .hero .sub{
+    font-family:var(--work); font-weight:300;
+    font-size:clamp(14px,1.7vw,17px); color:var(--muted); max-width:38ch;
+  }
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap:var(--s1) var(--s3);
+    font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--titanium);
+  }
+  .hero-meta span{ white-space:nowrap; }
+  .hero-meta span::before{ content:"·"; color:var(--gold); margin-right:10px; }
+
+  /* ---------- manifesto lines ---------- */
+  .creed{ display:flex; flex-direction:column; }
+  .creed-row{
+    display:grid; grid-template-columns:56px 1fr;
+    gap:var(--s3);
+    padding-block:clamp(18px,2.6vw,26px);
+    border-top:1px solid var(--line);
+    align-items:baseline;
+  }
+  .creed-row:last-child{ border-bottom:1px solid var(--line); }
+  .creed-row .n{
+    font-family:var(--work); font-size:11px; font-weight:600;
+    letter-spacing:.2em; color:var(--gold);
+    font-variant-numeric:tabular-nums;
+  }
+  .creed-row .t{
+    font-family:var(--display);
+    font-size:clamp(21px,3vw,33px);
+    line-height:1.24; letter-spacing:-.005em;
+    color:var(--pearl);
+    text-wrap:balance;
+  }
+  .creed-row .t span{ color:var(--muted); font-style:italic; }
+
+  /* ---------- format / safe zone diagram ---------- */
+  .format-grid{ display:grid; grid-template-columns:1fr; gap:var(--s4); }
+  @media(min-width:900px){ .format-grid{ grid-template-columns:1.35fr 1fr; align-items:start; } }
+
+  .canvas{
+    position:relative; aspect-ratio:16/9; width:100%;
+    background:
+      radial-gradient(120% 90% at 50% 50%,rgba(216,140,45,.13) 0%,rgba(5,5,5,0) 62%),
+      var(--surface-2);
+    border:1px solid var(--line);
+    overflow:hidden;
+  }
+  .canvas .zone{
+    position:absolute; top:0; bottom:0; left:50%; transform:translateX(-50%);
+    display:flex; align-items:flex-end; justify-content:center;
+  }
+  .zone-square{ width:56.25%; border-left:1px dashed rgba(198,166,106,.5); border-right:1px dashed rgba(198,166,106,.5); background:rgba(198,166,106,.05); }
+  .zone-grid{ width:42.2%; border-left:1px solid var(--amber); border-right:1px solid var(--amber); background:rgba(216,140,45,.1); }
+  .zone-label{
+    position:absolute; font-family:var(--work); font-size:10px; font-weight:600;
+    letter-spacing:.16em; text-transform:uppercase; white-space:nowrap;
+  }
+  .canvas .l-frame{ top:10px; left:12px; color:var(--titanium); }
+  .canvas .l-sq{ bottom:10px; left:50%; transform:translateX(-50%) translateX(-26%); color:var(--gold); }
+  .canvas .l-gr{ top:10px; left:50%; transform:translateX(-50%); color:var(--amber); }
+  .canvas .mark{
+    position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    width:12px; height:12px;
+    background:
+      linear-gradient(var(--gold),var(--gold)) center/1px 12px no-repeat,
+      linear-gradient(var(--gold),var(--gold)) center/12px 1px no-repeat;
+    opacity:.7;
+  }
+  .canvas .bleed{ position:absolute; inset:4.5% 2.6%; border:1px dotted rgba(138,138,142,.42); }
+
+  .spec-list{ display:flex; flex-direction:column; gap:0; }
+  .spec-list div{
+    display:flex; justify-content:space-between; gap:var(--s2);
+    padding-block:13px; border-bottom:1px solid var(--line);
+    font-size:13.5px;
+  }
+  .spec-list dt,.spec-list .k{ color:var(--titanium); letter-spacing:.04em; }
+  .spec-list .v{ color:var(--pearl); font-weight:500; font-variant-numeric:tabular-nums; text-align:right; }
+
+  .note{
+    margin-top:var(--s3);
+    border-left:2px solid var(--amber);
+    padding:14px 0 14px 18px;
+    font-size:14px; color:var(--muted); max-width:62ch;
+  }
+
+  /* ---------- palette ---------- */
+  .swatches{ display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .sw{ background:var(--surface); padding:var(--s3); display:flex; flex-direction:column; gap:14px; }
+  .chip{ height:74px; width:100%; border:1px solid rgba(255,255,255,.07); }
+  .sw .nm{ font-size:13px; font-weight:500; color:var(--pearl); letter-spacing:.02em; }
+  .sw .hx{ font-size:12px; color:var(--titanium); letter-spacing:.1em; font-variant-numeric:tabular-nums; }
+  .sw .us{ font-size:12px; color:var(--muted); line-height:1.45; }
+  .ratio{
+    display:flex; height:44px; margin-top:var(--s4); border:1px solid var(--line);
+    font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+  }
+  .ratio div{ display:flex; align-items:center; justify-content:center; }
+  .r70{ flex:70; background:var(--ink); color:var(--titanium); }
+  .r20{ flex:20; background:linear-gradient(100deg,#8A7443,var(--gold)); color:#1B1408; font-weight:600; }
+  .r10{ flex:10; background:var(--amber); color:#2A1704; font-weight:600; }
+
+  /* ---------- typography specimen ---------- */
+  .type-grid{ display:grid; gap:1px; background:var(--line); border:1px solid var(--line); grid-template-columns:1fr; }
+  @media(min-width:820px){ .type-grid{ grid-template-columns:1fr 1fr; } }
+  .type-card{ background:var(--surface); padding:clamp(22px,3vw,34px); display:flex; flex-direction:column; gap:var(--s2); }
+  .type-card .big{ font-size:clamp(46px,6vw,74px); line-height:1; color:var(--pearl); }
+  .type-card .big.d{ font-family:var(--display); }
+  .type-card .big.w{ font-family:var(--work); font-weight:800; letter-spacing:-.035em; }
+  .type-card .sample{ color:var(--muted); font-size:14.5px; line-height:1.55; }
+  .type-card .sample.d{ font-family:var(--display); font-size:18px; color:var(--malt); }
+  .rules{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:7px; font-size:13px; color:var(--muted); }
+  .rules li{ padding-left:16px; position:relative; }
+  .rules li::before{ content:""; position:absolute; left:0; top:.62em; width:6px; height:1px; background:var(--gold); }
+
+  /* ---------- light direction ---------- */
+  .lights{ display:grid; gap:var(--s3); grid-template-columns:1fr; }
+  @media(min-width:780px){ .lights{ grid-template-columns:repeat(3,1fr); } }
+  .light{ border:1px solid var(--line); display:flex; flex-direction:column; }
+  .light .vis{ aspect-ratio:16/9; position:relative; overflow:hidden; background:var(--surface-2); }
+  .light .vis img{ width:100%; height:100%; object-fit:cover; }
+  .light .body{ padding:var(--s3); display:flex; flex-direction:column; gap:10px; }
+  .light .pct{ font-family:var(--work); font-weight:600; font-size:11px; letter-spacing:.2em; color:var(--amber); }
+  .light p{ font-size:13.5px; color:var(--muted); line-height:1.55; }
+  .vis-blackout{ background:#000 url("assets/sax-blackout.png") 62% center/cover no-repeat; }
+  .vis-showroom{ background:#F7F7F5 url("assets/showroom-vertical.png") center 22%/125% auto no-repeat; }
+  .vis-balcao{ background:#3A1F16 url("assets/torre-balcao.webp") center/cover no-repeat; }
+
+  /* ---------- pillars ---------- */
+  .pillars{ display:grid; gap:1px; background:var(--line); border:1px solid var(--line); grid-template-columns:1fr; }
+  @media(min-width:640px){ .pillars{ grid-template-columns:1fr 1fr; } }
+  @media(min-width:1000px){ .pillars{ grid-template-columns:repeat(3,1fr); } }
+  .pillar{ background:var(--surface); padding:var(--s3); display:flex; flex-direction:column; gap:11px; }
+  .pillar .tag{ display:flex; align-items:center; gap:10px; }
+  .pillar .dot{ width:9px; height:9px; border-radius:50%; flex:none; }
+  .pillar h3{ font-size:22px; color:var(--pearl); }
+  .pillar p{ font-size:13.5px; color:var(--muted); line-height:1.55; }
+  .pillar .how{ font-size:12px; color:var(--titanium); border-top:1px solid var(--line); padding-top:11px; margin-top:2px; letter-spacing:.03em; }
+  .d-prod{ background:var(--gold); }
+  .d-real{ background:var(--pearl); }
+  .d-voz{ background:var(--amber); }
+
+  .legend{ display:flex; flex-wrap:wrap; gap:var(--s3); margin-top:var(--s3); font-size:12px; color:var(--titanium); }
+  .legend span{ display:flex; align-items:center; gap:8px; }
+  .legend i{ width:9px; height:9px; border-radius:50%; display:block; }
+
+  /* ---------- the grid mock ---------- */
+  .phone{
+    max-width:430px; margin:0 auto; width:100%;
+    border:1px solid var(--line); background:var(--surface); padding:var(--s2);
+  }
+  .phone .bio{ display:flex; gap:var(--s2); align-items:center; padding:6px 4px var(--s2); }
+  .avatar{
+    width:58px; height:58px; border-radius:50%; flex:none;
+    background:radial-gradient(circle at 34% 30%,#1D1712,#050505 70%);
+    border:1px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--display); font-size:21px; color:var(--gold); letter-spacing:.02em;
+  }
+  .bio .h{ display:flex; flex-direction:column; gap:2px; }
+  .bio .nm{ font-size:14px; font-weight:600; color:var(--pearl); letter-spacing:.02em; }
+  .bio .tl{ font-size:12px; color:var(--muted); }
+  .tiles{ display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
+  .tile{
+    aspect-ratio:3/4; position:relative; overflow:hidden;
+    background:var(--surface-2);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:9px;
+  }
+  .tile .k{
+    font-size:8.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--pearl); z-index:2; text-shadow:0 1px 6px rgba(0,0,0,.9);
+  }
+  .tile .k::before{ content:""; display:block; width:12px; height:2px; background:var(--gold); margin-bottom:6px; }
+  .tile.ph{ background-size:cover; background-position:center; }
+  .tile.ph::after{ content:""; position:absolute; inset:0; background:linear-gradient(transparent 45%,rgba(5,5,5,.82)); }
+  .t-sax{ background-image:url("assets/sax-blackout.png"); }
+  .t-balcao{ background-image:url("assets/torre-balcao.webp"); }
+  .t-show{ background-image:url("assets/showroom-vertical.png"); background-position:center 18%; }
+  .tile.word{ align-items:flex-start; justify-content:center; background:linear-gradient(160deg,#0E0B08,#050505); border:1px solid #191512; }
+  .tile.word q{
+    font-family:var(--display); font-size:13px; line-height:1.22; color:var(--malt);
+    quotes:none; display:block; margin-bottom:auto; padding-top:4px;
+  }
+  .tile.brief{
+    background:repeating-linear-gradient(135deg,#0B0908 0 6px,#0E0C0A 6px 12px);
+    border:1px dashed #2E2820;
+  }
+  .tile.brief .bf{ font-size:9px; color:var(--titanium); line-height:1.35; margin-bottom:auto; padding-top:2px; }
+  .grid-note{ display:flex; flex-direction:column; gap:var(--s2); }
+
+  .rhythm{ display:grid; gap:var(--s4); grid-template-columns:1fr; align-items:start; }
+  @media(min-width:960px){ .rhythm{ grid-template-columns:430px 1fr; } }
+
+  /* ---------- caption anatomy ---------- */
+  .caption{
+    border:1px solid var(--line); background:var(--surface);
+    display:grid; grid-template-columns:1fr; gap:1px;
+  }
+  .cap-row{ background:var(--surface); padding:var(--s3); display:grid; grid-template-columns:1fr; gap:8px; border-bottom:1px solid var(--line); }
+  @media(min-width:760px){ .cap-row{ grid-template-columns:150px 1fr; gap:var(--s3); align-items:start; } }
+  .cap-row:last-child{ border-bottom:0; }
+  .cap-row .k{ font-size:10.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); padding-top:4px; }
+  .cap-row .v{ font-size:15px; color:var(--pearl); line-height:1.55; }
+  .cap-row .v small{ display:block; font-size:12.5px; color:var(--titanium); margin-top:6px; letter-spacing:.02em; }
+  .cap-row .v .tags{ color:var(--muted); font-size:13px; }
+
+  /* ---------- calendar ---------- */
+  .cal-scroll{ overflow-x:auto; border:1px solid var(--line); }
+  table{ border-collapse:collapse; width:100%; min-width:600px; font-size:13.5px; }
+  th,td{ text-align:left; padding:14px var(--s2); border-bottom:1px solid var(--line); }
+  th{ font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--titanium); font-weight:600; background:var(--surface-2); }
+  td{ color:var(--muted); }
+  td:first-child{ color:var(--pearl); font-weight:500; letter-spacing:.06em; width:16%; }
+  td .fmt{ color:var(--gold); font-variant-numeric:tabular-nums; font-size:12.5px; letter-spacing:.04em; }
+  tr:last-child td{ border-bottom:0; }
+  tr.quiet td{ background:rgba(216,140,45,.045); }
+
+  /* ---------- do / dont ---------- */
+  .dd{ display:grid; gap:var(--s3); grid-template-columns:1fr; }
+  @media(min-width:820px){ .dd{ grid-template-columns:1fr 1fr; } }
+  .dd-col{ border:1px solid var(--line); padding:var(--s3); }
+  .dd-col h3{ font-family:var(--work); font-size:11px; font-weight:600; letter-spacing:.26em; text-transform:uppercase; margin-bottom:var(--s2); }
+  .dd-col.yes{ border-top:2px solid var(--gold); }
+  .dd-col.no{ border-top:2px solid var(--graphite); }
+  .dd-col.yes h3{ color:var(--gold); }
+  .dd-col.no h3{ color:var(--titanium); }
+  .dd-col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px; }
+  .dd-col li{ font-size:14px; color:var(--muted); line-height:1.5; padding-left:20px; position:relative; }
+  .dd-col.yes li::before{ content:"—"; position:absolute; left:0; color:var(--gold); }
+  .dd-col.no li::before{ content:"×"; position:absolute; left:2px; color:var(--graphite); font-size:15px; }
+
+  /* ---------- signature ---------- */
+  .sig{ display:grid; gap:var(--s4); grid-template-columns:1fr; align-items:center; }
+  @media(min-width:860px){ .sig{ grid-template-columns:300px 1fr; } }
+  .plaque{
+    background:var(--polar); padding:var(--s3);
+    display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--gold);
+  }
+  .plaque img{ width:100%; max-width:230px; }
+
+  /* ---------- closing ---------- */
+  .close{ text-align:center; padding-block:clamp(72px,11vw,140px); }
+  .close p{
+    font-family:var(--display); font-size:clamp(28px,5.2vw,56px);
+    line-height:1.12; color:var(--pearl); max-width:17ch; margin:0 auto;
+  }
+  .close .k{ margin-bottom:var(--s3); }
+  footer{ padding-block:var(--s4); text-align:center; }
+  footer .l{ font-size:10px; letter-spacing:.42em; text-transform:uppercase; color:var(--graphite); }
+
+  @media (prefers-reduced-motion:no-preference){
+    .tile{ transition:transform .35s ease; }
+    .tile:hover{ transform:scale(1.02); }
+  }
+  :focus-visible{ outline:2px solid var(--amber); outline-offset:3px; }
+</style>
+
+<header class="hero">
+  <div class="hero-frame">
+    <div class="hero-copy">
+      <div class="kicker">
+        <span class="bar"></span>
+        <span class="eyebrow">Premium Gourmet Chopeiras · Identidade Visual</span>
+      </div>
+      <h1>Chope em <em>16:9</em></h1>
+      <p class="sub">Manifesto de feed. Um formato, seis pilares, uma única luz. Tudo o que for publicado nasce deitado — 1920 × 1080.</p>
+      <div class="hero-meta">
+        <span>Since 2012</span><span>Preto 70 / Metal 20 / Âmbar 10</span><span>v1.0 — set 2026</span>
+      </div>
+    </div>
+  </div>
+  <div class="grille"></div>
+</header>
+
+<main class="wrap">
+
+  <section id="manifesto">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="num">01</span> &nbsp;O manifesto</span>
+      <h2>Ninguém compra chopeira.<br>Compra a cena que ela cria.</h2>
+      <p class="lede">Sete frases que decidem qualquer dúvida de feed. Se uma peça contraria uma delas, a peça está errada — não a regra.</p>
+    </div>
+    <div class="creed">
+      <div class="creed-row"><span class="n">I</span><span class="t">Chope não se serve. <span>Se apresenta.</span></span></div>
+      <div class="creed-row"><span class="n">II</span><span class="t">O preto não é fundo. É silêncio — <span>para que o latão fale.</span></span></div>
+      <div class="creed-row"><span class="n">III</span><span class="t">Toda peça é 16:9. <span>Quem tem presença, ocupa horizonte.</span></span></div>
+      <div class="creed-row"><span class="n">IV</span><span class="t">Fotografamos o objeto, não a bebida. <span>A cerveja é consequência.</span></span></div>
+      <div class="creed-row"><span class="n">V</span><span class="t">Uma ideia por post. <span>Se precisa de duas, são dois posts.</span></span></div>
+      <div class="creed-row"><span class="n">VI</span><span class="t">Âmbar só onde o chope passa. <span>O resto é metal e escuro.</span></span></div>
+      <div class="creed-row"><span class="n">VII</span><span class="t">Sofisticação é o que sobra <span>depois de tirar tudo o que não é necessário.</span></span></div>
+    </div>
+  </section>
+
+  <div class="hair"></div>
+
+  <section id="formato">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="num">02</span> &nbsp;O formato</span>
+      <h2>Um quadro só: 1920 × 1080.</h2>
+      <p class="lede">O feed é horizontal por decisão, não por conveniência. O 16:9 é o formato do produto: a torre é vertical, o balcão é horizontal — e é o balcão que vende. Mas o Instagram corta. Por isso o quadro tem três camadas.</p>
+    </div>
+
+    <div class="format-grid">
+      <div>
+        <div class="canvas">
+          <div class="zone zone-square"></div>
+          <div class="zone zone-grid"></div>
+          <span class="bleed"></span>
+          <span class="mark"></span>
+          <span class="zone-label l-frame">1920 × 1080 — o quadro</span>
+          <span class="zone-label l-gr">810 px — zona viva</span>
+          <span class="zone-label l-sq">1080 px — zona segura</span>
+        </div>
+        <p class="note"><strong>Zona viva (810 px centrais).</strong> É o único pedaço que sobrevive à miniatura do perfil, que corta em 3:4. Torre, torneira e logo moram aqui. Fora dela entram só preto, reflexo e respiro — nunca texto, nunca a peça principal.</p>
+      </div>
+
+      <div class="spec-list">
+        <div><span class="k">Quadro</span><span class="v">1920 × 1080 px</span></div>
+        <div><span class="k">Proporção</span><span class="v">16:9</span></div>
+        <div><span class="k">Zona viva (3:4)</span><span class="v">810 px centrais</span></div>
+        <div><span class="k">Zona segura (1:1)</span><span class="v">1080 px centrais</span></div>
+        <div><span class="k">Margem de borda</span><span class="v">80 px</span></div>
+        <div><span class="k">Arquivo</span><span class="v">JPG · qual. 90 · sRGB</span></div>
+        <div><span class="k">Peso máximo</span><span class="v">8 MB</span></div>
+        <div><span class="k">Nomenclatura</span><span class="v">PGC_20260914_icone_01</span></div>
+        <div><span class="k">Vertical (Stories/Reels)</span><span class="v">1080 × 1920</span></div>
+        <p class="note" style="border-left-color:var(--gold)">O vertical nunca é uma arte nova: é o mesmo take, recortado do master 16:9 ou fotografado na mesma diária, com a mesma luz. Duas proporções, uma direção de arte.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="hair"></div>
+
+  <section id="paleta">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="num">03</span> &nbsp;Paleta</span>
+      <h2>Preto dominante. Ouro no detalhe. Âmbar como luz.</h2>
+      <p class="lede">Oito cores, três funções. O preto ocupa, o metal desenha, o âmbar acende. A proporção abaixo vale para cada peça isolada e para o feed inteiro.</p>
+    </div>
+
+    <div class="swatches">
+      <div class="sw"><span class="chip" style="background:#050505"></span><span class="nm">Gloss Black</span><span class="hx">#050505</span><span class="us">Fundo padrão. Preto real, sem cinza. 70% de tudo.</span></div>
+      <div class="sw"><span class="chip" style="background:#D88C2D"></span><span class="nm">Beer Amber</span><span class="hx">#D88C2D</span><span class="us">A luz. Reflexo no vidro, glow da torneira, CTA. Nunca em texto corrido.</span></div>
+      <div class="sw"><span class="chip" style="background:#C6A66A"></span><span class="nm">Champagne Gold</span><span class="hx">#C6A66A</span><span class="us">O metal. Fios, molduras, numeração, assinatura.</span></div>
+      <div class="sw"><span class="chip" style="background:#E6C18B"></span><span class="nm">Malt Cream</span><span class="hx">#E6C18B</span><span class="us">Frase de manifesto sobre preto. Serifa, nunca caixa alta.</span></div>
+      <div class="sw"><span class="chip" style="background:#F4F2ED"></span><span class="nm">Pearl White</span><span class="hx">#F4F2ED</span><span class="us">Manchete sobre preto. O branco quente, nunca #FFFFFF.</span></div>
+      <div class="sw"><span class="chip" style="background:#F7F7F5"></span><span class="nm">Polar White</span><span class="hx">#F7F7F5</span><span class="us">Fundo do modo showroom e da plaqueta do logo.</span></div>
+      <div class="sw"><span class="chip" style="background:#8A8A8E"></span><span class="nm">Titanium Gray</span><span class="hx">#8A8A8E</span><span class="us">Rótulos, etiquetas, ficha técnica. Texto de apoio.</span></div>
+      <div class="sw"><span class="chip" style="background:#43454A"></span><span class="nm">Graphite</span><span class="hx">#43454A</span><span class="us">Linhas, bordas, estados desligados. Quase invisível.</span></div>
+    </div>
+
+    <div class="ratio" aria-label="Proporção de cor: 70% preto, 20% metal, 10% âmbar">
+      <div class="r70">70 · preto</div>
+      <div class="r20">20 · metal</div>
+      <div class="r10">10 · âmbar</div>
+    </div>
+    <p class="note">O verde do selo institucional existe só no logo. Ele não vira cor de layout, de fundo, de borda ou de destaque — o selo é uma peça de metal esmaltado aplicada sobre a marca, não uma paleta.</p>
+  </section>
+
+  <div class="hair"></div>
+
+  <section id="tipografia">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="num">04</span> &nbsp;Tipografia</span>
+      <h2>Uma voz e um balcão.</h2>
+      <p class="lede">Duas famílias, papéis que não se misturam. A serifa fala; a grotesca informa. Nenhuma peça usa mais de dois tamanhos.</p>
+    </div>
+    <div class="type-grid">
+      <div class="type-card">
+        <span class="eyebrow">A voz · Bodoni Moda</span>
+        <span class="big d">Presença</span>
+        <span class="sample d">Sofisticação em cada curva.</span>
+        <ul class="rules">
+          <li>Manchetes, frases de manifesto, números romanos.</li>
+          <li>Pearl White ou Malt Cream. Nunca âmbar.</li>
+          <li>Caixa baixa com inicial maiúscula. Ponto final sempre.</li>
+          <li>Mínimo 28 px no quadro de 1920 — a serifa fina some na miniatura.</li>
+        </ul>
+      </div>
+      <div class="type-card">
+        <span class="eyebrow">O balcão · Archivo</span>
+        <span class="big w">30 L · 2 °C</span>
+        <span class="sample">Torre esculpida em bronze polido à mão. Bandeja de inox com dreno central e grelha usinada.</span>
+        <ul class="rules">
+          <li>Rótulos, ficha técnica, legenda, CTA, preço.</li>
+          <li>Etiqueta: caixa alta, 600, tracking 0,26 em, Titanium Gray.</li>
+          <li>Números sempre tabulares — vazão, litragem, temperatura.</li>
+          <li>Peso 800 só em anúncio de campanha, nunca no feed orgânico.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="hair"></div>
+
+  <section id="luz">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="num">05</span> &nbsp;Direção de luz</span>
+      <h2>Três cenários. Nunca um quarto.</h2>
+      <p class="lede">Toda foto do feed cai em um destes três. A proporção entre eles é o que dá ritmo ao perfil — e o que impede que o preto vire monotonia.</p>
+    </div>
+    <div class="lights">
+      <article class="light">
+        <div class="vis vis-blackout"></div>
+        <div class="body">
+          <span class="pct">60% do feed</span>
+          <h3>Blackout</h3>
+          <p>Fundo #050505, key âmbar a 45° pela direita, sem preenchimento. O que interessa é o filete especular contínuo descendo o latão. Produto flutuando, sem cenário, sem props.</p>
+        </div>
+      </article>
+      <article class="light">
+        <div class="vis vis-showroom"></div>
+        <div class="body">
+          <span class="pct">20% do feed</span>
+          <h3>Showroom</h3>
+          <p>Fundo Polar White, sombra de contato suave, reflexo no piso. É o modo catálogo: mostra forma, acabamento e escala. Único cenário onde o tipo pode ser preto.</p>
+        </div>
+      </article>
+      <article class="light">
+        <div class="vis vis-balcao"></div>
+        <div class="body">
+          <span class="pct">20% do feed</span>
+          <h3>Balcão</h3>
+          <p>Madeira, vidro, mão humana, f/2 com fundo desfocado. A chopeira em uso, na casa de quem comprou. É a única família onde entra gente.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="hair"></div>
+
+  <section id="pilares">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="num">06</span> &nbsp;Pilares de conteúdo</span>
+      <h2>Seis tipos de post. Nada fora disso.</h2>
+      <p class="lede">Cada pilar pertence a uma das três famílias — produto, real ou voz. A regra de montagem do grid usa essas famílias, não os pilares.</p>
+    </div>
+    <div class="pillars">
+      <article class="pillar">
+        <span class="tag"><i class="dot d-prod"></i><span class="eyebrow">Produto</span></span>
+        <h3>Ícone</h3>
+        <p>A chopeira inteira em blackout, centralizada, sem texto sobre a imagem. O post âncora do perfil.</p>
+        <span class="how">Blackout · 1 linha de copy no canto inferior esquerdo</span>
+      </article>
+      <article class="pillar">
+        <span class="tag"><i class="dot d-prod"></i><span class="eyebrow">Produto</span></span>
+        <h3>Detalhe</h3>
+        <p>Macro: rosca da torneira, grelha da bandeja, solda, espuma se formando no bico. Textura antes de informação.</p>
+        <span class="how">Blackout ou Showroom · sem texto</span>
+      </article>
+      <article class="pillar">
+        <span class="tag"><i class="dot d-real"></i><span class="eyebrow">Real</span></span>
+        <h3>Ambiente</h3>
+        <p>A peça instalada — varanda, área gourmet, salão, evento. Mostra escala e pertencimento.</p>
+        <span class="how">Balcão · legenda nomeia a cidade</span>
+      </article>
+      <article class="pillar">
+        <span class="tag"><i class="dot d-real"></i><span class="eyebrow">Real</span></span>
+        <h3>Prova</h3>
+        <p>Oficina, polimento, entrega, cliente recebendo. O bastidor que sustenta a palavra "premium".</p>
+        <span class="how">Balcão · foto crua, sem tratamento pesado</span>
+      </article>
+      <article class="pillar">
+        <span class="tag"><i class="dot d-voz"></i><span class="eyebrow">Voz</span></span>
+        <h3>Palavra</h3>
+        <p>Tipografia sobre preto. Uma frase do manifesto, nada mais. Serve de respiro entre dois posts de produto.</p>
+        <span class="how">Preto puro · Bodoni em Malt Cream · sem logo</span>
+      </article>
+      <article class="pillar">
+        <span class="tag"><i class="dot d-voz"></i><span class="eyebrow">Voz</span></span>
+        <h3>Ritual</h3>
+        <p>Movimento: a alavanca descendo, o copo inclinado a 45°, o colarinho fechando em dois dedos. Vídeo curto, capa recortada do master.</p>
+        <span class="how">Reels 1080 × 1920 · capa dentro da zona viva</span>
+      </article>
+    </div>
+    <div class="legend">
+      <span><i class="d-prod"></i> Produto — o objeto</span>
+      <span><i class="d-real"></i> Real — o mundo</span>
+      <span><i class="d-voz"></i> Voz — a marca falando</span>
+    </div>
+  </section>
+
+  <div class="hair"></div>
+
+  <section id="grid">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="num">07</span> &nbsp;Ritmo do grid</span>
+      <h2>A regra das três famílias.</h2>
+      <p class="lede">Cada linha de três posts leva um Produto, um Real e uma Voz — nunca dois da mesma família lado a lado, nunca a mesma família duas vezes na mesma coluna dentro de uma janela de três linhas. O perfil fica escuro e uniforme sem ficar repetitivo.</p>
+    </div>
+
+    <div class="rhythm">
+      <div class="phone">
+        <div class="bio">
+          <span class="avatar" aria-hidden="true">PG</span>
+          <span class="h">
+            <span class="nm">premiumgourmetchopeiras</span>
+            <span class="tl">Chopeiras sob medida · desde 2012 · São Paulo</span>
+          </span>
+        </div>
+        <div class="tiles">
+          <div class="tile ph t-sax"><span class="k">Ícone</span></div>
+          <div class="tile ph t-balcao"><span class="k">Ambiente</span></div>
+          <div class="tile word"><q>O latão não pede licença.</q><span class="k">Palavra</span></div>
+
+          <div class="tile brief"><span class="bf">Macro — rosca da torneira, luz âmbar rasante</span><span class="k">Detalhe</span></div>
+          <div class="tile word"><q>Toda peça é 16:9.</q><span class="k">Palavra</span></div>
+          <div class="tile brief"><span class="bf">Entrega — cliente recebendo a peça na área gourmet</span><span class="k">Prova</span></div>
+
+          <div class="tile ph t-show"><span class="k">Ícone</span></div>
+          <div class="tile brief"><span class="bf">Reels — alavanca descendo, colarinho fechando</span><span class="k">Ritual</span></div>
+          <div class="tile brief"><span class="bf">Oficina — polimento manual do bronze, mão em quadro</span><span class="k">Prova</span></div>
+        </div>
+      </div>
+
+      <div class="grid-note">
+        <h3 style="font-family:var(--work);font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)">Como ler a maquete</h3>
+        <p class="lede">As miniaturas acima estão em 3:4 — é assim que o perfil corta um arquivo 16:9. Repare no que some: as laterais. Nada que importe pode morar lá.</p>
+        <div class="spec-list" style="margin-top:8px">
+          <div><span class="k">Peças fotografadas</span><span class="v">assets existentes</span></div>
+          <div><span class="k">Peças hachuradas</span><span class="v">briefing de produção</span></div>
+          <div><span class="k">Janela de avaliação</span><span class="v">9 posts</span></div>
+          <div><span class="k">Blackout na janela</span><span class="v">mín. 5 de 9</span></div>
+          <div><span class="k">Posts com texto na arte</span><span class="v">máx. 3 de 9</span></div>
+          <div><span class="k">Logo aplicado na arte</span><span class="v">nunca no orgânico</span></div>
+        </div>
+        <p class="note">Antes de publicar, olhe o perfil inteiro — não o post. Se a peça nova quebra a alternância das famílias, ela espera um dia. O feed é uma vitrine montada, não uma fila de chegada.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="hair"></div>
+
+  <section id="legenda">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="num">08</span> &nbsp;Legenda e tom</span>
+      <h2>Frase curta. Verbo forte. Nenhum adjetivo empilhado.</h2>
+      <p class="lede">Cinco blocos, sempre nesta ordem. A legenda é a ficha técnica da cena — não o comercial dela.</p>
+    </div>
+    <div class="caption">
+      <div class="cap-row">
+        <span class="k">01 Gancho</span>
+        <span class="v">O latão não pede licença.<small>Até 60 caracteres — é o que aparece antes do "mais". Sem emoji, sem pergunta retórica.</small></span>
+      </div>
+      <div class="cap-row">
+        <span class="k">02 Cena</span>
+        <span class="v">Bronze maciço polido à mão, bandeja de inox com dreno central. A peça ocupa o balcão como um instrumento ocupa o palco.<small>Duas linhas. Sensorial, não técnico. É aqui que se vende a presença.</small></span>
+      </div>
+      <div class="cap-row">
+        <span class="k">03 Ficha</span>
+        <span class="v">Serve a 2 °C · colarinho de dois dedos · barril de 30 ou 50 L · engate Sankey<small>Um dado real por post. Números tabulares, separados por ponto médio. Nunca mais de quatro.</small></span>
+      </div>
+      <div class="cap-row">
+        <span class="k">04 Chamada</span>
+        <span class="v">Orçamento no direct.<small>Uma só, sempre a mesma família de verbo. Nunca duas chamadas no mesmo post.</small></span>
+      </div>
+      <div class="cap-row">
+        <span class="k">05 Assinatura</span>
+        <span class="v tags">Mais do que chope. Presença.<br>#premiumgourmetchopeiras #chopeira #chopegelado #areagourmet — mais duas locais.<small>Quatro fixas, duas de cidade. Bloco separado por uma linha em branco, nunca no meio do texto.</small></span>
+      </div>
+    </div>
+    <p class="note">Três palavras proibidas em qualquer legenda: <strong>imperdível</strong>, <strong>top</strong>, <strong>custo-benefício</strong>. Quem vende presença não argumenta por preço.</p>
+  </section>
+
+  <div class="hair"></div>
+
+  <section id="calendario">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="num">09</span> &nbsp;Semana padrão</span>
+      <h2>Seis publicações. E um domingo em silêncio.</h2>
+      <p class="lede">O calendário existe para que a regra das famílias se cumpra sozinha. Feriado e lançamento substituem um dia — não acrescentam um sétimo.</p>
+    </div>
+    <div class="cal-scroll">
+      <table>
+        <thead>
+          <tr><th>Dia</th><th>Pilar</th><th>Formato</th><th>Direção</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Segunda</td><td>Palavra</td><td class="fmt">16:9 · 1920 × 1080</td><td>Preto puro, tipografia</td></tr>
+          <tr><td>Terça</td><td>Detalhe</td><td class="fmt">16:9 · 1920 × 1080</td><td>Blackout, macro</td></tr>
+          <tr><td>Quarta</td><td>Ritual</td><td class="fmt">9:16 · 1080 × 1920</td><td>Reels, capa da zona viva</td></tr>
+          <tr><td>Quinta</td><td>Ambiente</td><td class="fmt">16:9 · 1920 × 1080</td><td>Balcão, cliente real</td></tr>
+          <tr><td>Sexta</td><td>Ícone</td><td class="fmt">16:9 · 1920 × 1080</td><td>Blackout, peça inteira</td></tr>
+          <tr><td>Sábado</td><td>Prova</td><td class="fmt">16:9 · 1920 × 1080</td><td>Oficina ou entrega</td></tr>
+          <tr class="quiet"><td>Domingo</td><td>Silêncio</td><td class="fmt">Stories apenas</td><td>Nada no feed. O respiro faz parte.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="hair"></div>
+
+  <section id="regras">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="num">10</span> &nbsp;Regras de aplicação</span>
+      <h2>O que protege a marca.</h2>
+    </div>
+    <div class="dd">
+      <div class="dd-col yes">
+        <h3>Faça</h3>
+        <ul>
+          <li>Preto real #050505 no fundo — o cinza entrega amadorismo na primeira rolagem.</li>
+          <li>Deixe a peça respirar: 80 px de margem mínima, mesmo que o objeto fique pequeno.</li>
+          <li>Fotografe o metal com uma fonte de luz só, para manter o reflexo contínuo.</li>
+          <li>Mostre o chope sendo puxado em vídeo, nunca o copo cheio e parado em foto.</li>
+          <li>Corrija a temperatura de cor do latão antes de publicar: ele tem que ficar dourado, não amarelo.</li>
+          <li>Publique a peça em 16:9 e confira a miniatura 3:4 antes de confirmar.</li>
+        </ul>
+      </div>
+      <div class="dd-col no">
+        <h3>Não faça</h3>
+        <ul>
+          <li>Filtro pronto, HDR, vinheta ou contorno de nitidez.</li>
+          <li>Moldura branca para "encaixar" o 16:9 num quadrado.</li>
+          <li>Texto por cima do produto — o texto mora no preto vazio.</li>
+          <li>Emoji na arte, no gancho ou no nome do perfil.</li>
+          <li>Colagem de duas fotos no mesmo quadro.</li>
+          <li>Logo grande no canto de todo post: o feed inteiro já é a assinatura.</li>
+          <li>Preço na arte. Preço se responde no direct.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="hair"></div>
+
+  <section id="assinatura">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="num">11</span> &nbsp;Assinatura</span>
+      <h2>O selo tem chão próprio.</h2>
+    </div>
+    <div class="sig">
+      <div class="plaque"><img src="assets/logo.jpg" alt="Selo Premium Gourmet Chopeiras"></div>
+      <div>
+        <ul class="rules" style="font-size:14px;gap:11px">
+          <li>O selo é verde e dourado: ele exige campo claro. Sobre preto, aplica-se sempre dentro de uma plaqueta Polar White, como uma peça esmaltada — nunca recortado direto no fundo.</li>
+          <li>No feed orgânico ele não aparece. Fica reservado a anúncio, catálogo, orçamento e embalagem.</li>
+          <li>Foto de perfil: monograma <strong class="gold">PG</strong> em Bodoni dourado sobre preto. O selo inteiro é ilegível a 110 px.</li>
+          <li>Área de proteção: a altura da palavra "PREMIUM" em toda a volta.</li>
+          <li>Assinatura verbal do feed: <strong>Mais do que chope. Presença.</strong> — em Archivo, caixa alta, tracking 0,42 em, Titanium Gray.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="grille"></div>
+
+<div class="close wrap">
+  <span class="eyebrow k">Premium Gourmet Chopeiras</span>
+  <p>Mais do que chope. Presença.</p>
+</div>
+
+<footer>
+  <span class="l">Manifesto de feed · v1.0 · setembro 2026</span>
+</footer>
