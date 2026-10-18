@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <title>Carrossel Dia do Médico</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Jost:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Noto+Color+Emoji&family=Jost:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
 <style>
   :root{
     --gold:#8E7948; --gold-soft:#A08B5B; --off:#EFEEEA; --beige:#EAE2D3;
     --stone:#BBB6AD; --olive:#878772; --graphite:#555658; --ink:#121110;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#2a2926;font-family:'Jost',sans-serif;font-weight:300;color:var(--ink);
+  body{background:#2a2926;font-family:'Jost','Noto Color Emoji',sans-serif;font-weight:300;color:var(--ink);
     display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px 0}
   .slide{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--off);
     padding:72px 80px;display:flex;flex-direction:column}
@@ -64,6 +64,17 @@
   .huge{font-family:'Abril Fatface';font-size:300px;line-height:.78}
   .truth{font-size:100px}
   .lead{font-size:36px;line-height:1.42;max-width:880px}
+  .full{padding:0;color:var(--off)}
+  .full .bg{position:absolute;inset:0;background-size:cover}
+  .full .sh{position:absolute;inset:0}
+  .full .in{position:absolute;inset:0;padding:72px 80px;display:flex;flex-direction:column}
+  .bub{background:rgba(239,238,234,.96);color:var(--ink);border-radius:44px 44px 44px 10px;padding:34px 40px;
+    font-size:34px;line-height:1.38;font-weight:400;max-width:820px;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+  .bub + .bub{margin-top:26px}
+  .who{display:flex;align-items:center;gap:14px;font-size:20px;letter-spacing:.2em;text-transform:uppercase;margin:0 0 14px 6px}
+  .who i{width:44px;height:44px;border-radius:50%;background:var(--gold);display:inline-flex;align-items:center;justify-content:center;
+    font-style:normal;font-family:'Abril Fatface';letter-spacing:0;color:var(--off);font-size:22px}
+  .bub b{font-weight:500;background:linear-gradient(transparent 62%,rgba(142,121,72,.35) 62%)}
 </style>
 </head>
 <body>
@@ -71,10 +82,10 @@
 <!-- 01 · CAPA -->
 <section class="slide s1" id="s1">
   <div class="photo"></div><div class="shade"></div>
-  <div class="hd"><div>Dia do Médico<br>18 de outubro</div><div>O que eu não costumo<br>dizer no consultório</div><div class="num" style="font-family:Jost;font-weight:300">→</div></div>
+  <div class="hd"><div>Dia do Médico<br>18 de outubro</div><div>Mensagens que<br>eu guardo</div><div class="num" style="font-family:Jost;font-weight:300">→</div></div>
   <div class="content">
     <span class="pill" style="color:var(--beige);background:rgba(142,121,72,.9);border-color:var(--gold)">18.10 · Dia do Médico</span>
-    <h1 class="fat" style="margin-top:30px;font-size:88px">Hoje é o meu dia. Então vou falar o que eu <em>não costumo</em> dizer.</h1>
+    <h1 class="fat" style="margin-top:30px;font-size:96px">Hoje é Dia do Médico. Mas quem ganhou <em>presente</em> fui eu.</h1>
     <div class="swipe">
       <img class="logo" src="assets/logo_light.png" alt="GAB Plástica e Estética">
       <span class="caps" style="font-size:18px">Arraste &nbsp;→</span>
@@ -82,51 +93,60 @@
   </div>
 </section>
 
-<!-- 02 · PRESSA -->
-<section class="slide gold" id="s2">
-  <div class="hd"><div>Dia do Médico<br>18 de outubro</div><div>O que eu não costumo<br>dizer no consultório</div><div class="num" style="font-family:Jost;font-weight:300">→</div></div>
-  <div class="huge" style="margin-top:70px">01</div>
-  <h2 class="fat truth" style="margin-top:40px">A pressa é o maior risco que você traz para a cirurgia.</h2>
-  <div class="dash"></div>
-  <p class="lead">O “quero pra ontem” sempre fala mais alto que o “quero bem”. <b style="font-weight:500">Eu fico do lado do “bem”.</b></p>
-  <div class="foot"><img class="logo" src="assets/logo_dark.png" alt="GAB"><span class="caps" style="font-size:18px">Continua &nbsp;→</span></div>
-</section>
-
-<!-- 03 · O NÃO -->
-<section class="slide s4 beige" id="s3">
-  <div class="left"></div>
-  <div class="right">
-    <div class="hd" style="grid-template-columns:1fr 96px"><div>Dia do Médico<br>18 de outubro</div><div class="num" style="font-family:Jost;font-weight:300">→</div></div>
-    <div class="huge" style="margin-top:50px;font-size:220px;color:var(--gold)">02</div>
-    <h2 class="fat" style="font-size:84px;margin-top:30px">Eu já recusei paciente. E faria de novo.</h2>
-    <p class="body" style="font-size:30px;margin-top:34px">Ela queria operar seis meses depois de uma cesárea. Eu disse não: o bebê ainda precisava da mãe.</p>
-    <p class="body" style="font-size:30px;margin-top:22px">Ela esperou. Depois da cirurgia, me escreveu:</p>
-    <p class="quote" style="font-size:52px;margin-top:20px;color:var(--gold)">“Sou uma outra mulher.”</p>
-    <div class="foot" style="font-size:15px;opacity:.65"><span>Relato compartilhado com autorização da paciente.</span></div>
+<!-- 02 · GRATIDÃO -->
+<section class="slide full" id="s2">
+  <div class="bg" style="background-image:url(assets/foto_olhar2.jpg);background-position:center 20%"></div>
+  <div class="sh" style="background:linear-gradient(180deg,rgba(18,17,16,.55) 0%,rgba(18,17,16,0) 22%,rgba(18,17,16,0) 40%,rgba(18,17,16,.8) 75%)"></div>
+  <div class="in">
+    <div class="hd" style="color:var(--off);border-color:var(--off)"><div>Dia do Médico<br>18 de outubro</div><div>Mensagens que<br>eu guardo</div><div class="num" style="font-family:Jost;font-weight:300">→</div></div>
+    <div style="margin-top:auto">
+      <div class="who"><i>A</i>Paciente</div>
+      <div class="bub">Parabéns, Dr, pelo seu dia 👏🏼🙏🏼 Ser operada por você foi <b>uma das melhores coisas que me aconteceram nesse ano.</b></div>
+      <div class="who" style="margin-top:34px"><i>C</i>Paciente</div>
+      <div class="bub">Você é um ser humano ímpar, de um coração gigante. <b>Sou muito grata por tudo que o senhor já fez por mim!</b></div>
+    </div>
   </div>
 </section>
 
-<!-- 04 · O FEED -->
-<section class="slide dark" id="s4">
-  <div class="hd"><div>Dia do Médico<br>18 de outubro</div><div>O que eu não costumo<br>dizer no consultório</div><div class="num" style="font-family:Jost;font-weight:300">→</div></div>
-  <div class="huge" style="margin-top:70px;color:var(--gold)">03</div>
-  <h2 class="fat truth" style="margin-top:40px;color:var(--off)">A foto do feed não é a sua meta.</h2>
-  <div class="dash" style="background:var(--gold)"></div>
-  <p class="lead" style="color:var(--stone)">Cada corpo tem a sua própria história. <span class="it" style="font-size:46px;color:var(--beige)">É com a sua que eu trabalho</span> — não com a de outra pessoa.</p>
-  <div class="foot"><img class="logo" src="assets/logo_light.png" alt="GAB"><span class="caps"  style="font-size:18px;color:var(--stone)">Continua &nbsp;→</span></div>
+<!-- 03 · O NÃO -->
+<section class="slide full" id="s3">
+  <div class="bg" style="background-image:url(assets/foto_picasso.jpg);background-position:30% center"></div>
+  <div class="sh" style="background:linear-gradient(180deg,rgba(18,17,16,.6) 0%,rgba(18,17,16,.15) 25%,rgba(18,17,16,.55) 45%,rgba(18,17,16,.92) 80%)"></div>
+  <div class="in">
+    <div class="hd" style="color:var(--off);border-color:var(--off)"><div>Dia do Médico<br>18 de outubro</div><div>Mensagens que<br>eu guardo</div><div class="num" style="font-family:Jost;font-weight:300">→</div></div>
+    <div style="margin-top:auto">
+      <p class="fat" style="font-size:64px;margin-bottom:34px">Ela me pediu para operar 6 meses depois do parto. Eu disse “ainda não”.</p>
+      <div class="who"><i>K</i>Paciente, depois da cirurgia</div>
+      <div class="bub">Passando pra dizer que estou tão feliz. Tão realizada. <b>Sou uma outra mulher. Nada de dor. Só alegria.</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · CUIDADO -->
+<section class="slide beige" id="s4">
+  <div class="hd"><div>Dia do Médico<br>18 de outubro</div><div>Mensagens que<br>eu guardo</div><div class="num" style="font-family:Jost;font-weight:300">→</div></div>
+  <h2 class="fat" style="font-size:78px;margin-top:64px">O que mais me emociona não é o resultado.</h2>
+  <p class="it" style="font-size:46px;color:var(--gold);margin-top:14px">É como elas se sentiram cuidadas.</p>
+  <div style="margin-top:auto">
+    <div class="who"><i>L</i>Paciente</div>
+    <div class="bub" style="box-shadow:0 14px 40px rgba(18,17,16,.12);background:#fff">Já fiz várias cirurgias plásticas e <b>nunca nenhum cirurgião foi tão atencioso e compreensível.</b> 🙏🏼</div>
+    <div class="who" style="margin-top:34px"><i>M</i>Paciente</div>
+    <div class="bub" style="box-shadow:0 14px 40px rgba(18,17,16,.12);background:#fff">Orgulho eu tenho, e não é pouco, <b>de ter te escolhido.</b> 🥰</div>
+  </div>
 </section>
 
 <!-- 05 · FECHAMENTO -->
-<section class="slide" id="s5" style="padding:0">
-  <div style="position:absolute;inset:0 0 auto 0;height:620px;background:url(assets/foto_olhar.jpg) center 34%/cover"></div>
-  <div style="position:absolute;inset:620px 0 0 0;padding:60px 80px 72px;display:flex;flex-direction:column">
-    <p class="caps" style="color:var(--gold);font-size:19px">Feliz Dia do Médico</p>
-    <h2 class="fat" style="font-size:76px;margin-top:20px">Ser médico é cuidar até do que você <span class="it" style="font-size:84px;color:var(--gold)">ainda não perguntou.</span></h2>
-    <p class="body" style="font-size:26px;margin-top:26px">Salve para lembrar antes da sua consulta — e envie para quem está pensando em operar.</p>
-    <div class="foot" style="border-top:1.5px solid var(--ink);padding-top:26px">
-      <img class="logo" src="assets/logo_gold.png" alt="GAB Plástica e Estética">
-      <span style="text-align:right;line-height:1.5">Dr. George Augusto Bittencourt<br>Cirurgião Plástico · CRM-SP 000000 · RQE 0000</span>
-    </div>
+<section class="slide gold" id="s5">
+  <div class="hd"><div>Dia do Médico<br>18 de outubro</div><div>Mensagens que<br>eu guardo</div><div class="num" style="font-family:Jost;font-weight:300">♡</div></div>
+  <div style="margin-top:90px">
+    <p class="caps">Feliz Dia do Médico</p>
+    <h2 class="fat" style="font-size:96px;margin-top:26px">Cada mensagem dessas me lembra por que eu escolhi a medicina.</h2>
+    <div class="dash"></div>
+    <p class="it" style="font-size:52px;line-height:1.2;color:var(--off)">Obrigado por confiarem em mim.<br>O presente é meu.</p>
+  </div>
+  <div class="foot" style="border-top:1.5px solid var(--ink);padding-top:26px">
+    <img class="logo" src="assets/logo_dark.png" alt="GAB Plástica e Estética">
+    <span style="text-align:right;line-height:1.5">Dr. George Augusto Bittencourt<br>Cirurgião Plástico · CRM-SP 000000 · RQE 0000</span>
   </div>
 </section>
 
