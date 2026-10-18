@@ -38,7 +38,7 @@
   /* 1 — capa */
   .s1{padding:0;color:var(--off)}
   .s1 .photo{position:absolute;inset:0;background:url(assets/foto_cover.jpg) center 30%/cover}
-  .s1 .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,17,16,0) 30%,rgba(18,17,16,.55) 55%,rgba(18,17,16,.93) 100%)}
+  .s1 .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,17,16,0) 45%,rgba(18,17,16,.6) 64%,rgba(18,17,16,.93) 100%)}
   .s1 .hd{position:relative;margin:72px 80px 0;color:var(--ink);border-color:var(--ink)}
   .s1 .content{position:absolute;left:80px;right:80px;bottom:80px}
   .s1 h1{font-size:104px}
@@ -61,6 +61,9 @@
   .mark{font-family:'Abril Fatface';font-size:180px;line-height:.6;color:var(--gold);height:80px}
 
   .pill{display:inline-block;border:1.5px solid currentColor;border-radius:100px;padding:12px 28px;font-size:20px;letter-spacing:.24em;text-transform:uppercase;font-weight:400}
+  .huge{font-family:'Abril Fatface';font-size:300px;line-height:.78}
+  .truth{font-size:100px}
+  .lead{font-size:36px;line-height:1.42;max-width:880px}
 </style>
 </head>
 <body>
@@ -68,10 +71,10 @@
 <!-- 01 · CAPA -->
 <section class="slide s1" id="s1">
   <div class="photo"></div><div class="shade"></div>
-  <div class="hd"><div>Dia do Médico<br>18 de outubro</div><div>Previsivelmente<br>humanos</div><div class="num">01</div></div>
+  <div class="hd"><div>Dia do Médico<br>18 de outubro</div><div>O que eu não costumo<br>dizer no consultório</div><div class="num" style="font-family:Jost;font-weight:300">→</div></div>
   <div class="content">
-    <span class="pill" style="color:var(--beige);background:rgba(142,121,72,.85);border-color:var(--gold)">18 de outubro · Dia do Médico</span>
-    <h1 class="fat" style="margin-top:34px;font-size:96px">Hoje quero contar a vez em que eu <em>recusei</em> uma paciente.</h1>
+    <span class="pill" style="color:var(--beige);background:rgba(142,121,72,.9);border-color:var(--gold)">18.10 · Dia do Médico</span>
+    <h1 class="fat" style="margin-top:30px;font-size:88px">Hoje é o meu dia. Então vou falar o que eu <em>não costumo</em> dizer.</h1>
     <div class="swipe">
       <img class="logo" src="assets/logo_light.png" alt="GAB Plástica e Estética">
       <span class="caps" style="font-size:18px">Arraste &nbsp;→</span>
@@ -79,55 +82,48 @@
   </div>
 </section>
 
-<!-- 02 · A HISTÓRIA -->
-<section class="slide s4 beige" id="s2">
+<!-- 02 · PRESSA -->
+<section class="slide gold" id="s2">
+  <div class="hd"><div>Dia do Médico<br>18 de outubro</div><div>O que eu não costumo<br>dizer no consultório</div><div class="num" style="font-family:Jost;font-weight:300">→</div></div>
+  <div class="huge" style="margin-top:70px">01</div>
+  <h2 class="fat truth" style="margin-top:40px">A pressa é o maior risco que você traz para a cirurgia.</h2>
+  <div class="dash"></div>
+  <p class="lead">O “quero pra ontem” sempre fala mais alto que o “quero bem”. <b style="font-weight:500">Eu fico do lado do “bem”.</b></p>
+  <div class="foot"><img class="logo" src="assets/logo_dark.png" alt="GAB"><span class="caps" style="font-size:18px">Continua &nbsp;→</span></div>
+</section>
+
+<!-- 03 · O NÃO -->
+<section class="slide s4 beige" id="s3">
   <div class="left"></div>
   <div class="right">
-    <div class="hd" style="grid-template-columns:1fr 96px"><div>Uma história real<br>contada com autorização*</div><div class="num">02</div></div>
-    <div style="margin-top:64px">
-      <p class="body" style="font-size:31px">Numa live, uma paciente me perguntou se eu a operaria <b style="font-weight:500">seis meses depois de uma cesárea.</b></p>
-      <p class="fat" style="font-size:124px;margin:34px 0 30px">Eu disse<br>não.</p>
-      <p class="body" style="font-size:31px">Não por técnica. Porque nesse período o bebê precisa da mãe.</p>
-      <p class="body" style="font-size:31px;margin-top:24px">Semanas depois, ela voltou com argumentos prontos para me convencer. E escolheu esperar.</p>
-    </div>
-    <div class="foot" style="font-size:16px;opacity:.7"><span>*Depoimento compartilhado com consentimento da paciente.</span></div>
+    <div class="hd" style="grid-template-columns:1fr 96px"><div>Dia do Médico<br>18 de outubro</div><div class="num" style="font-family:Jost;font-weight:300">→</div></div>
+    <div class="huge" style="margin-top:50px;font-size:220px;color:var(--gold)">02</div>
+    <h2 class="fat" style="font-size:84px;margin-top:30px">Eu já recusei paciente. E faria de novo.</h2>
+    <p class="body" style="font-size:30px;margin-top:34px">Ela queria operar seis meses depois de uma cesárea. Eu disse não: o bebê ainda precisava da mãe.</p>
+    <p class="body" style="font-size:30px;margin-top:22px">Ela esperou. Depois da cirurgia, me escreveu:</p>
+    <p class="quote" style="font-size:52px;margin-top:20px;color:var(--gold)">“Sou uma outra mulher.”</p>
+    <div class="foot" style="font-size:15px;opacity:.65"><span>Relato compartilhado com autorização da paciente.</span></div>
   </div>
 </section>
 
-<!-- 03 · O DESFECHO -->
-<section class="slide dark" id="s3">
-  <div class="hd"><div>Dia do Médico<br>18 de outubro</div><div>Previsivelmente<br>humanos</div><div class="num">03</div></div>
-  <div style="margin-top:110px">
-    <div class="caps" style="color:var(--gold-soft)">Quando chegou a hora certa</div>
-    <div class="mark" style="margin-top:60px">“</div>
-    <p class="quote" style="font-size:86px;color:var(--beige)">Sou uma outra mulher.<br>Nada de dor.<br>Só alegria.</p>
-    <div class="dash" style="background:var(--gold)"></div>
-    <p class="body" style="color:var(--stone);font-size:28px">— mensagem da mesma paciente, após a cirurgia</p>
-  </div>
-  <div class="foot"><img class="logo" src="assets/logo_light.png" alt="GAB"><span class="caps" style="font-size:18px;color:var(--stone)">Por que isso importa &nbsp;→</span></div>
-</section>
-
-<!-- 04 · A CIÊNCIA -->
-<section class="slide gold" id="s4">
-  <div class="hd"><div>Dia do Médico<br>18 de outubro</div><div>Previsivelmente<br>humanos</div><div class="num">04</div></div>
-  <div style="margin-top:64px">
-    <div class="caps">Economia comportamental</div>
-    <h2 class="fat" style="font-size:118px;margin-top:22px">Sinal<br>custoso.</h2>
-    <div class="dash" style="margin:36px 0"></div>
-    <p class="body" style="font-size:31px;max-width:880px">Dan Ariely mostrou que somos <span class="it" style="font-size:38px">previsivelmente irracionais</span>: decidimos pela pressa, pelo primeiro preço, pelo resultado de outra pessoa no feed.</p>
-    <p class="body" style="font-size:31px;max-width:880px;margin-top:26px">Por isso confiamos em quem prova que não age só por interesse. <b style="font-weight:500">Prometer é de graça. Recusar uma cirurgia tem preço</b> — e é exatamente isso que torna o “não” crível.</p>
-  </div>
-  <div class="foot" style="border-top:1.5px solid var(--ink);padding-top:28px"><span class="it" style="font-size:40px;letter-spacing:0">Às vezes, o maior cuidado é o tempo certo.</span></div>
+<!-- 04 · O FEED -->
+<section class="slide dark" id="s4">
+  <div class="hd"><div>Dia do Médico<br>18 de outubro</div><div>O que eu não costumo<br>dizer no consultório</div><div class="num" style="font-family:Jost;font-weight:300">→</div></div>
+  <div class="huge" style="margin-top:70px;color:var(--gold)">03</div>
+  <h2 class="fat truth" style="margin-top:40px;color:var(--off)">A foto do feed não é a sua meta.</h2>
+  <div class="dash" style="background:var(--gold)"></div>
+  <p class="lead" style="color:var(--stone)">Cada corpo tem a sua própria história. <span class="it" style="font-size:46px;color:var(--beige)">É com a sua que eu trabalho</span> — não com a de outra pessoa.</p>
+  <div class="foot"><img class="logo" src="assets/logo_light.png" alt="GAB"><span class="caps"  style="font-size:18px;color:var(--stone)">Continua &nbsp;→</span></div>
 </section>
 
 <!-- 05 · FECHAMENTO -->
 <section class="slide" id="s5" style="padding:0">
-  <div style="position:absolute;inset:0 0 auto 0;height:640px;background:url(assets/foto_olhar.jpg) center 34%/cover"></div>
-  <div style="position:absolute;inset:640px 0 0 0;padding:64px 80px 72px;display:flex;flex-direction:column">
-    <h2 class="fat" style="font-size:72px">Feliz Dia do Médico.</h2>
-    <p class="it" style="font-size:48px;line-height:1.2;margin-top:22px;color:var(--gold)">A todos que têm a coragem de dizer “ainda não”.</p>
-    <p class="body" style="font-size:26px;margin-top:30px;max-width:860px">Conhece alguém pensando em operar? Envie este post — a melhor decisão começa pela pergunta certa.</p>
-    <div class="foot" style="border-top:1.5px solid var(--ink);padding-top:28px">
+  <div style="position:absolute;inset:0 0 auto 0;height:620px;background:url(assets/foto_olhar.jpg) center 34%/cover"></div>
+  <div style="position:absolute;inset:620px 0 0 0;padding:60px 80px 72px;display:flex;flex-direction:column">
+    <p class="caps" style="color:var(--gold);font-size:19px">Feliz Dia do Médico</p>
+    <h2 class="fat" style="font-size:76px;margin-top:20px">Ser médico é cuidar até do que você <span class="it" style="font-size:84px;color:var(--gold)">ainda não perguntou.</span></h2>
+    <p class="body" style="font-size:26px;margin-top:26px">Salve para lembrar antes da sua consulta — e envie para quem está pensando em operar.</p>
+    <div class="foot" style="border-top:1.5px solid var(--ink);padding-top:26px">
       <img class="logo" src="assets/logo_gold.png" alt="GAB Plástica e Estética">
       <span style="text-align:right;line-height:1.5">Dr. George Augusto Bittencourt<br>Cirurgião Plástico · CRM-SP 000000 · RQE 0000</span>
     </div>
