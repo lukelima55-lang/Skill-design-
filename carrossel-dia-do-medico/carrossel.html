@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Carrossel Dia do Médico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Jost:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold:#8E7948; --gold-soft:#A08B5B; --off:#EFEEEA; --beige:#EAE2D3;
+    --stone:#BBB6AD; --olive:#878772; --graphite:#555658; --ink:#121110;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#2a2926;font-family:'Jost',sans-serif;font-weight:300;color:var(--ink);
+    display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px 0}
+  .slide{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--off);
+    padding:72px 80px;display:flex;flex-direction:column}
+  .gold{background:var(--gold);} .beige{background:var(--beige);} .white{background:#fff}
+  .dark{background:var(--ink);color:var(--off)}
+
+  /* cabeçalho no padrão do manual */
+  .hd{display:grid;grid-template-columns:1.4fr 1fr 96px;align-items:start;font-size:19px;
+    line-height:1.45;font-weight:400;letter-spacing:.01em;padding-bottom:34px;
+    border-bottom:1.5px solid currentColor;opacity:.92}
+  .hd .num{width:96px;height:96px;border-radius:50%;border:1.5px solid currentColor;
+    display:flex;align-items:center;justify-content:center;font-family:'Abril Fatface';font-size:30px}
+  .dark .hd{border-color:rgba(239,238,234,.5)}
+
+  .fat{font-family:'Abril Fatface',serif;font-weight:400;letter-spacing:-.005em;line-height:1.04}
+  .it{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400}
+  .caps{text-transform:uppercase;letter-spacing:.32em;font-weight:400;font-size:20px}
+  .dash{width:64px;height:7px;background:currentColor;margin:44px 0}
+  .body{font-size:34px;line-height:1.45}
+  .big-num{font-family:'Abril Fatface';font-size:440px;line-height:.8;position:absolute;right:70px;bottom:40px}
+  .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;font-size:19px;font-weight:400;letter-spacing:.04em}
+  .logo{height:74px}
+
+  /* 1 — capa */
+  .s1{padding:0;color:var(--off)}
+  .s1 .photo{position:absolute;inset:0;background:url(assets/foto_cover.jpg) center 30%/cover}
+  .s1 .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,17,16,0) 30%,rgba(18,17,16,.55) 55%,rgba(18,17,16,.93) 100%)}
+  .s1 .hd{position:relative;margin:72px 80px 0;color:var(--ink);border-color:var(--ink)}
+  .s1 .content{position:absolute;left:80px;right:80px;bottom:80px}
+  .s1 h1{font-size:104px}
+  .s1 h1 em{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;color:var(--beige);font-size:118px}
+  .s1 .sub{font-size:32px;margin-top:34px;max-width:820px;line-height:1.4;color:var(--beige)}
+  .s1 .swipe{margin-top:56px;display:flex;justify-content:space-between;align-items:center}
+
+  /* listas */
+  .bias{display:grid;grid-template-columns:120px 1fr;gap:6px 30px;padding:38px 0;border-bottom:1.5px solid rgba(18,17,16,.25)}
+  .bias:last-child{border-bottom:none}
+  .bias .n{font-family:'Abril Fatface';font-size:84px;line-height:.9;color:var(--gold)}
+  .bias h3{font-family:'Abril Fatface';font-weight:400;font-size:46px;line-height:1.1}
+  .bias p{font-size:29px;line-height:1.42;margin-top:10px}
+
+  /* história */
+  .s4{padding:0}
+  .s4 .left{position:absolute;left:0;top:0;bottom:0;width:430px;background:url(assets/foto_picasso.jpg) 38% center/cover}
+  .s4 .right{position:absolute;left:430px;right:0;top:0;bottom:0;padding:72px 70px 72px 64px;display:flex;flex-direction:column}
+  .quote{font-family:'Cormorant Garamond';font-style:italic;font-size:54px;line-height:1.18}
+  .mark{font-family:'Abril Fatface';font-size:180px;line-height:.6;color:var(--gold);height:80px}
+
+  .pill{display:inline-block;border:1.5px solid currentColor;border-radius:100px;padding:12px 28px;font-size:20px;letter-spacing:.24em;text-transform:uppercase;font-weight:400}
+</style>
+</head>
+<body>
+
+<!-- 01 · CAPA -->
+<section class="slide s1" id="s1">
+  <div class="photo"></div><div class="shade"></div>
+  <div class="hd"><div>Dia do Médico<br>18 de outubro</div><div>Previsivelmente<br>humanos</div><div class="num">01</div></div>
+  <div class="content">
+    <div class="caps" style="color:var(--stone)">Economia comportamental no consultório</div>
+    <h1 class="fat" style="margin-top:30px">Por que confiamos mais no médico que nos diz <em>“não”?</em></h1>
+    <div class="swipe">
+      <img class="logo" src="assets/logo_light.png" alt="GAB Plástica e Estética">
+      <span class="caps" style="font-size:18px">Arraste &nbsp;→</span>
+    </div>
+  </div>
+</section>
+
+<!-- 02 · PREMISSA -->
+<section class="slide gold" id="s2">
+  <div class="hd"><div>Dia do Médico<br>18 de outubro</div><div>Previsivelmente<br>humanos</div><div class="num">02</div></div>
+  <div style="margin-top:90px">
+    <h2 class="fat" style="font-size:92px">Somos previsivelmente irracionais.</h2>
+    <div class="dash"></div>
+    <p class="body" style="max-width:820px">Dan Ariely passou a carreira mostrando que nossas decisões não são frias nem calculadas — e erram sempre <span class="it" style="font-size:40px">na mesma direção.</span></p>
+    <p class="body" style="max-width:820px;margin-top:30px">Quando a decisão é sobre o próprio corpo, isso fica ainda mais forte.</p>
+  </div>
+  <div class="big-num" style="color:rgba(18,17,16,.9)">?</div>
+</section>
+
+<!-- 03 · OS VIESES -->
+<section class="slide white" id="s3">
+  <div class="hd"><div>Dia do Médico<br>18 de outubro</div><div>Previsivelmente<br>humanos</div><div class="num">03</div></div>
+  <h2 class="fat" style="font-size:62px;margin:54px 0 18px">3 atalhos mentais que entram no consultório antes de você.</h2>
+  <div class="bias"><div class="n">1</div><div><h3>Ancoragem</h3><p>O primeiro valor que você ouve vira a régua de tudo — mesmo que ele não diga nada sobre segurança.</p></div></div>
+  <div class="bias"><div class="n">2</div><div><h3>Viés do presente</h3><p>O “quero agora” grita mais alto que o “quero bem”. A pressa parece urgência; quase nunca é.</p></div></div>
+  <div class="bias"><div class="n">3</div><div><h3>Prova social</h3><p>O resultado de outra pessoa no feed vira a sua expectativa. Mas o seu corpo tem outra história.</p></div></div>
+  <div class="foot" style="border-top:1.5px solid var(--ink);padding-top:28px"><span class="it" style="font-size:34px;letter-spacing:0">Não é falha de caráter. É o cérebro economizando energia.</span></div>
+</section>
+
+<!-- 04 · A HISTÓRIA -->
+<section class="slide s4 beige" id="s4">
+  <div class="left"></div>
+  <div class="right">
+    <div class="hd" style="grid-template-columns:1fr 96px"><div>Uma história real<br>contada com autorização*</div><div class="num">04</div></div>
+    <div style="margin-top:64px">
+      <p class="body" style="font-size:30px">Numa live, uma paciente perguntou se eu a operaria <b style="font-weight:500">seis meses depois de uma cesárea.</b></p>
+      <p class="fat" style="font-size:118px;margin:34px 0 30px">Eu disse<br>não.</p>
+      <p class="body" style="font-size:30px">Não por técnica. Porque nesse período o bebê precisa da mãe.</p>
+      <p class="body" style="font-size:30px;margin-top:24px">Semanas depois, ela voltou com argumentos prontos para me convencer. E escolheu esperar mais um pouco.</p>
+    </div>
+    <div class="foot" style="font-size:16px;opacity:.7"><span>*Depoimento compartilhado com consentimento da paciente.</span></div>
+  </div>
+</section>
+
+<!-- 05 · O DESFECHO -->
+<section class="slide dark" id="s5">
+  <div class="hd"><div>Dia do Médico<br>18 de outubro</div><div>Previsivelmente<br>humanos</div><div class="num" style="color:var(--off)">05</div></div>
+  <div style="margin-top:110px">
+    <div class="caps" style="color:var(--gold-soft)">Quando chegou a hora certa</div>
+    <div class="mark" style="margin-top:60px">“</div>
+    <p class="quote" style="font-size:82px;color:var(--beige)">Sou uma outra mulher.<br>Nada de dor.<br>Só alegria.</p>
+    <div class="dash" style="background:var(--gold)"></div>
+    <p class="body" style="color:var(--stone);font-size:28px">— mensagem da mesma paciente, após a cirurgia</p>
+  </div>
+  <div class="foot"><img class="logo" src="assets/logo_light.png" alt="GAB"><span class="caps" style="font-size:18px;color:var(--stone)">Continua &nbsp;→</span></div>
+</section>
+
+<!-- 06 · SINAL CUSTOSO -->
+<section class="slide gold" id="s6">
+  <div class="hd"><div>Dia do Médico<br>18 de outubro</div><div>Previsivelmente<br>humanos</div><div class="num">06</div></div>
+  <div style="margin-top:80px">
+    <div class="caps">O nome disso</div>
+    <h2 class="fat" style="font-size:132px;margin-top:26px">Sinal<br>custoso.</h2>
+    <div class="dash"></div>
+    <p class="body" style="max-width:860px">Na economia comportamental, um sinal só é crível quando custa caro para quem o emite.</p>
+    <p class="body" style="max-width:860px;margin-top:28px">Prometer é de graça. <b style="font-weight:500">Recusar uma cirurgia tem preço.</b> É exatamente por isso que o “não” gera mais confiança do que qualquer “sim”.</p>
+  </div>
+</section>
+
+<!-- 07 · HISTÓRIAS VIAJAM -->
+<section class="slide beige" id="s7">
+  <div class="hd"><div>Dia do Médico<br>18 de outubro</div><div>Previsivelmente<br>humanos</div><div class="num">07</div></div>
+  <div style="margin-top:70px">
+    <div class="caps" style="color:var(--gold)">Jonah Berger, <span style="text-transform:none;letter-spacing:.02em" class="it">Contágio</span></div>
+    <h2 class="fat" style="font-size:84px;margin-top:26px">Dados informam. Histórias viajam.</h2>
+    <div class="dash" style="color:var(--gold)"></div>
+    <p class="body" style="max-width:880px">Berger mostra que as pessoas não espalham argumentos — espalham histórias que dizem algo sobre elas mesmas.</p>
+    <p class="body" style="max-width:880px;margin-top:28px">Por isso a confiança na medicina não se constrói em propaganda. Se constrói em cada paciente que sai do consultório <span class="it" style="font-size:42px">sentindo que foi protegido</span> — inclusive da própria pressa.</p>
+  </div>
+  <div class="big-num" style="font-size:300px;color:var(--gold);bottom:10px">”</div>
+</section>
+
+<!-- 08 · FECHAMENTO -->
+<section class="slide" id="s8" style="padding:0">
+  <div style="position:absolute;inset:0 0 auto 0;height:640px;background:url(assets/foto_olhar.jpg) center 34%/cover"></div>
+  <div style="position:absolute;inset:640px 0 0 0;padding:64px 80px 72px;display:flex;flex-direction:column">
+    <h2 class="fat" style="font-size:70px">Feliz Dia do Médico.</h2>
+    <p class="it" style="font-size:46px;line-height:1.2;margin-top:22px;color:var(--gold)">A todos que têm a coragem de dizer “ainda não”.</p>
+    <p class="body" style="font-size:26px;margin-top:30px;max-width:860px">Conhece alguém pensando em operar? Envie este post — a melhor decisão começa pela pergunta certa.</p>
+    <div class="foot" style="border-top:1.5px solid var(--ink);padding-top:28px">
+      <img class="logo" src="assets/logo_gold.png" alt="GAB Plástica e Estética">
+      <span style="text-align:right;line-height:1.5">Dr. George Augusto Bittencourt<br>Cirurgião Plástico · CRM-SP 000000 · RQE 0000</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
